@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-class-deployment
+  labels:
+    app: kube-class
+spec:
+  selector:
+    matchLabels:
+      app: kube-class
+  template:
+    metadata:
+      labels:
+        app: kube-class
+    spec:
+      containers:
+      - image: toryclasen/kube-class:dev1
+        name: kube-class
+        ports:
+        - containerPort: 8000
