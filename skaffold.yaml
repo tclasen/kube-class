@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta19
+kind: Config
+metadata:
+  name: kube-class
+build:
+  artifacts:
+  - image: toryclasen/kube-class
+    context: src
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - deploy/deployment.yaml
+    - deploy/service.yaml
